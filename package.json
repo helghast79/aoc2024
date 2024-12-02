@@ -1,0 +1,15 @@
+{
+  "name": "aoc2024",
+  "version": "1.0.0",
+  "description": "advent of code 2024 solutions",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "author": "Miguel Chambe",
+  "license": "MIT",
+  "dependencies": {
+    "fs-extra": "^11.2.0",
+    "path": "^0.12.7"
+  }
+}
