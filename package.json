@@ -9,6 +9,8 @@
   "author": "Miguel Chambe",
   "license": "MIT",
   "dependencies": {
+    "axios": "^1.7.8",
+    "dotenv": "^16.4.5",
     "fs-extra": "^11.2.0",
     "path": "^0.12.7"
   }
