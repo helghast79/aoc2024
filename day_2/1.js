@@ -1,4 +1,5 @@
 const fs = require('fs')
+const fetchPuzzleInput = require('../utils/fetchPuzzleInput')
 
 
 const signal = (a,b)=>{
@@ -9,8 +10,8 @@ const diff = (a,b)=>{
 }
 
 
-const run = async ()=>{
-  const data = fs.readFileSync('./day_2/input.txt', 'utf8')
+const run = async (day, part)=>{
+  const data = fs.readFileSync(`./day_${day}/input.txt`, 'utf8')
   const list = data.trim().split('\n').map(line => line.trim().split(/\s+/).map(Number))
   
   let safeReports = 0 
@@ -46,7 +47,17 @@ const run = async ()=>{
 }
 
 
-module.exports = async () => {
-  const result = await run()
+
+module.exports = async (day, part) => {
+  //download puzzle input if not already downloaded
+  if(!fs.existsSync(`./day_${day}/input.txt`)){
+    console.log('input file not found')
+    const fetchOk = await fetchPuzzleInput(day)
+    if(!fetchOk){
+        console.error('unable to download puzzle input')
+        return
+    }
+  }
+  const result = await run(day, part)
   console.log(`result: `, result)
 }
