@@ -17,7 +17,8 @@ const fetchPuzzleInput = async (day) => {
     const response = await axios.get(url, {
       headers: {
         Cookie: `session=${sessionCookie}`
-      }
+      },
+      responseType: 'text'
     })
 
     fs.writeFileSync(`./day_${day}/input.txt`, response.data.trim())
